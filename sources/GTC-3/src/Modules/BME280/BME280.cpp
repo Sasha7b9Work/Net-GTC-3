@@ -87,13 +87,13 @@ bool BME280::GetMeasures(Measure *temp, Measure *pressure, Measure *humidity)
     static float value = 1.1f;
 
     value *= 7.1f;
-    *temp = value / 100.0f;
+    temp->Set(Measure::Temperature, value / 100.0f);
 
     value *= 1.2f;
-    *pressure = value / 100.0f;
+    pressure->Set(Measure::Pressure, value / 100.0f);
 
     value *= 0.83f;
-    *humidity = value / 99.28f;
+    humidity->Set(Measure::Humidity, value / 99.28f);
 
     if (value > 1e4f)
     {

@@ -2,9 +2,7 @@
 
 project (GTC-3)
 
-#set(CMAKE_UNITY_BUILD OFF)
-
-#set(CMAKE_UNITY_BUILD_BATCH_SIZE 16)
+set(CMAKE_UNITY_BUILD OFF)
 
 include_directories(
     .
@@ -37,6 +35,7 @@ if(WIN32)
     add_compile_options(
         /wd4100    # 'xxx' : unreferenced formal parameter
         /wd4310
+        /wd4355
         /wd4365    # 'action' : conversion from 'type_1' to 'type_2', signed/unsigned mismatch
         /wd4514    # 'function' : unreferenced inline function has been removed
         /wd4623    # 'derived class' : default constructor was implicitly defined as deleted
@@ -161,6 +160,6 @@ add_executable( ${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-    wxbase32ud wxmsw32ud_core wxpngd wxzlibd
+    wxbase33ud wxmsw33ud_core wxpngd wxzlibd
     Ws2_32 Comctl32 Rpcrt4
 )
